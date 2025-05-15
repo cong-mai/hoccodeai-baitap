@@ -13,7 +13,7 @@ messages = []
 
 # get question from user
 while True:
-    question = input("Question: ")
+    question = input("Question(If you want to exit, please enter 'exit'): ")
     if question == "exit":
         break   
 
@@ -43,6 +43,7 @@ while True:
         "role": "assistant", 
         "content": assistant_response
         })
+    
 
 
 

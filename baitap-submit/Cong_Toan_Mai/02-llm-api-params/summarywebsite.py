@@ -10,11 +10,12 @@ client = OpenAI(
     api_key='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',
 )
 
-#Get the URL of the website
-url = input("Enter the URL of the website: ")
-
 #get website content
-try:
+while True:
+    #Get the URL of the website
+    url = input("\nEnter the URL of the website(If you want to exit, please enter 'exit'): ")
+    if url == "exit":
+        break  
     response = requests.get(url)
     response.raise_for_status() #check if the request is successful
     
@@ -28,7 +29,6 @@ try:
     providing a brief summary and list all the key words mentioned in the text
     '''{content}'''
     """
-    
     messages = [{
         "role": "user",
         "content": summary_prompt
@@ -42,9 +42,6 @@ try:
     print("\nSummary:")
     for chunk in stream:
         print(chunk.choices[0].delta.content or "", end="")
-
-except Exception as e:
-    print(f"Error fetching content: {str(e)}")
 
 
 

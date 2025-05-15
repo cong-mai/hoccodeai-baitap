@@ -65,8 +65,6 @@ try:
 
 except FileNotFoundError:
     print(f"Error: File not found: {input_file}")
-except Exception as e:
-    print(f"Error: {str(e)}")
 
 
 
